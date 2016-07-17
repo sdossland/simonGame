@@ -1,0 +1,246 @@
+.gameConsole {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.greenSquare,
+.yellowSquare {
+    border-right: 10px solid #333;
+}
+
+.redSquare,
+.blueSquare {
+    border-left: 10px solid #333;
+}
+
+.greenSquare,
+.redSquare {
+    border-bottom: 10px solid #333;
+}
+
+.yellowSquare,
+.blueSquare {
+    border-top: 10px solid #333;
+}
+
+.greenSquare {
+    z-index: 1;
+    background-color: #136c13;
+    height: 180px;
+    width: 180px;
+    -moz-border-radius: 180px 0 0 0;
+    border-radius: 180px 0 0 0;
+    position: absolute;
+    margin: 0 0 0 0;
+    border-left: 20px solid #333;
+    border-top: 20px solid #333;
+}
+
+.redSquare {
+    z-index: 0;
+    background-color: #821717;
+    height: 180px;
+    width: 180px;
+    -moz-border-radius: 0 180px 0 0;
+    border-radius: 0 180px 0 0;
+    position: absolute;
+    margin-left: 180px;
+    border-top: 20px solid #333;
+    border-right: 20px solid #333;
+}
+
+.yellowSquare {
+    z-index: -1;
+    background-color: #c3c322;
+    height: 180px;
+    width: 180px;
+    -moz-border-radius: 0 0 0 180px;
+    border-radius: 0 0 0 180px;
+    margin-top: 180px;
+    position: absolute;
+    border-bottom: 20px solid #333;
+    border-left: 20px solid #333;
+}
+
+.blueSquare {
+    z-index: -1;
+    background-color: #13136c;
+    height: 180px;
+    width: 180px;
+    -moz-border-radius: 0 0 180px 0;
+    border-radius: 0 0 180px 0;
+    margin-left: 180px;
+    margin-top: 180px;
+    position: absolute;
+    border-right: 20px solid #333;
+    border-bottom: 20px solid #333;
+}
+
+
+/*---cursor---*/
+
+.greenSquare:hover,
+.redSquare:hover,
+.yellowSquare:hover,
+.blueSquare:hover,
+.startBtn:hover,
+.strictBtn:hover {
+    cursor: pointer;
+}
+.removeCursor {
+    cursor: none;
+}
+
+
+/*---lights---*/
+
+.greenSquareLight {
+    background-color: #22c322;
+}
+
+.redSquareLight {
+    background-color: #e60000;
+}
+
+.yellowSquareLight {
+    background-color: #ffff1a;
+}
+
+.blueSquareLight {
+    background-color: #0000e6;
+}
+
+.controls {
+    height: 180px;
+    width: 180px;
+    margin-top: 90px;
+    margin-left: 90px;
+    position: fixed;
+    z-index: 10;
+    border-radius: 50%;
+    border: 15px solid #333;
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+
+sup {
+    font-size: 10px;
+    vertical-align: super;
+}
+
+
+/*---count, start, strict---*/
+
+.btnNames {
+    display: inline-block;
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+#count {
+    margin-left: 30px;
+}
+
+#start {
+    margin-left: 13px;
+}
+
+#strict {
+    margin-left: 5px;
+}
+
+.countBtn {
+    height: 30px;
+    width: 43px;
+    border-radius: 20%;
+    border: 2px solid #333;
+    background-color: #410b0b;
+    color: #b30000;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.counter {
+    padding-left: 5px;
+}
+
+.startBtn,
+.strictBtn {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.startBtn {
+    background-color: #c00;
+}
+
+.strictBtn {
+    background-color: #ffff4d;
+}
+
+.startBtn:hover,
+.strictBtn:hover {
+    height: 18px;
+    width: 18px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+.names {
+    height: 10px;
+    padding-top: 5px;
+}
+
+
+/*---Off On button---*/
+
+#offOn {
+    text-align: center;
+    width: 180px;
+}
+
+.sw-slot {
+    height: 20px;
+    width: 40px;
+    background-color: #333;
+    position: relative;
+    top: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.switch {
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    background-color: #3193DE;
+    position: relative;
+    border: 2px solid #333;
+    margin-top: 2px;
+}
+
+.switchOn {
+    margin-left: 20px;
+}
+
+.offBtn,
+.onBtn {
+    font-size: 12px;
+    display: inline-block;
+}

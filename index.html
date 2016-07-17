@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simon Game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<div class="gameConsole">
+    <div class="greenSquare square" id="0"></div>
+    <div class="redSquare square" id="1"></div>
+    <div class="controls">
+        <div class="row">
+            <p class="title">Simon<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></p>
+        </div>
+        <div class="row" height="40px">
+            <div class="btnNames" id="count">
+                <div class="countBtn">
+                    <p class="counter">--</p>
+                </div>
+                <p class="names">COUNT</p>
+            </div>
+            <div class="btnNames" id="start">
+                <div class="startBtn"></div>
+                <p class="names">START</p>
+            </div>
+            <div class="btnNames" id="strict">
+                <div class="strictBtn"></div>
+                <p class="names">STRICT</p>
+            </div>
+        </div>
+        <div class="row" id="offOn">
+            <p class="offBtn">OFF</p>
+            <div class="sw-slot inline">
+                <div class="switch" id="pwr-sw"></div>
+            </div>
+            <p class="onBtn">ON</p>
+        </div>
+    </div>
+    <div class="blueSquare square" id="2"></div>
+    <div class="yellowSquare square" id="3"></div>
+</div>
+</body>
+</html>
