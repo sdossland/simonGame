@@ -1,10 +1,8 @@
 var count,
     number,
-    clickable,
     click,
     sequence = [],
     sequenceAction = [],
-    userSequence = [],
     currentPlayer,
     square = {
         0: '.greenSquare',
@@ -46,7 +44,7 @@ function flash(location, action) {
             if (flash === 2) clearInterval(counter);
             $(x).toggleClass(y);
         }
-    }(location, action), 200);
+    }(location, action), 500);
 }
 
 /*---flash sequence---*/
@@ -61,24 +59,34 @@ function flashArr() {
             }(i),
             delay
         );
-        //clearInterval
     }
-    //switchUser();
+}
+
+function numberIncrease() {
+    // if (number < 20) {
+    number++;
+    console.log("number = " + number);
+    //} else if (number == 20) {
+    //  alert(winner);
+    //}
+}
+
+function computerFlash() {
+    buildArr();
+    flashArr();
+    switchUser();
 }
 
 function switchUser() {
     if (currentPlayer === 'computer') {
+        console.log('human\'s turn!');
         currentPlayer = 'human';
-        //if ()
-        clickable = true;
-        //userClick();
+        userClick();
     } else if (currentPlayer === 'human') {
+        console.log('computer\'s turn!');
         currentPlayer = 'computer';
-        clickable = false;
         numberIncrease(); //maybe move location???
-
-        //console.log('number = ' +number);
-        //flashArr();
+        computerFlash();
     }
 }
 
@@ -88,65 +96,41 @@ function startGame() {
     $('.counter').text(twoDigits(number));
     sequence = [];
     sequenceAction = [];
-    buildArr();
-    flashArr();
+    computerFlash();
+}
+
+function userClickOff() {
+    $('.square').off('click');
     switchUser();
 }
 
-function numberIncrease() {
-    // if (number < 20) {
-    number++;
-    console.log("number = " + number);
-    //} else if (number == 20) {
-    //  alert(winner); 
-    //}
-}
-
-
-
 function userClick() {
-    click = 1;
+    click = 0;
     $('.square').on('click', function() {
-        if (click < sequence.length) {
+        //if (click < sequence.length) {
             //click++;
             //console.log("click = " + click);
-            if ($(this).hasClass('greenSquare')) {
-                flash(square[0], actions[0]);
-                if (square[0] === sequence[(click-1)]) {
-                    console.log(sequence[0]);
-                    click++;
-                } else {
-                    var test = click - 1;
-                    alert(test);
-                }
-            } else if ($(this).hasClass('redSquare')) {
-                flash(square[1], actions[1]);
-                if (square[0] === sequence[(click-1)]) {
-                    click++;
-                } else {
-                    alert('Try again!');
-                }
-            } else if ($(this).hasClass('yellowSquare')) {
-                flash(square[2], actions[2]);
-                if (square[0] === sequence[(click-1)]) {
-                    click++;
-                } else {
-                    alert('Try again!');
-                }
-            } else if ($(this).hasClass('blueSquare')) {
-                flash(square[3], actions[3]);
-                if (square[0] === sequence[(click-1)]) {
-                    click++;
-                } else {
-                    alert('Try again!');
-                }
-            }
-        } else if (click >= sequence.length) {
-            //clickable = false;
-            //numberIncrease();
-            switchUser();
+        if ($(this).hasClass('greenSquare') && sequence[click] == '.greenSquare') {
+            flash(square[0], actions[0]);
+            click++;
+        } else if ($(this).hasClass('redSquare') && sequence[click] == '.redSquare') {
+            flash(square[1], actions[1]);
+            click++;
+        } else if ($(this).hasClass('yellowSquare') && sequence[click] == '.yellowSquare') {
+            flash(square[2], actions[2]);
+            click++;
+        } else if ($(this).hasClass('blueSquare') && sequence[click] == '.blueSquare') {
+            flash(square[3], actions[3]);
+            click++;
+        } else {
+            alert('cannot click!');
         }
+
+        if (click === sequence.length) userClickOff();
     });
+
+    console.log(sequence);
+    console.log(click);
 }
 
 /*!!!everything checked above this line!!!*/
@@ -234,10 +218,9 @@ $(document).ready(function() {
             alert('Turn the game on before proceeding!');
         } else {
             startGame();
-            userClick(); //delete!! just a test!
             //console.log(currentUser);
             //alert(sequence);
         }
     });
 
-})
+});
